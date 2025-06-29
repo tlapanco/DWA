@@ -1,0 +1,32 @@
+/*Reseteo de estilos por defecto*/
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body {	
+	/* Ocupar el 100% de la pantalla veticalmente */
+	height: 100dvh;
+	/* Fondo de degradado */
+	background: linear-gradient(to right, violet, white, blue);
+	/*Centrar contenido con flex*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+img {
+	animation: girarEnX 3s infinite;
+}
+
+@keyframes girarEnX {
+	0% {
+		transform: rotateY(0deg);
+	}
+	50%{
+		transform: rotateY(180deg);		
+	}
+	100%{
+		transform: rotateY(350deg);
+	}
+}
