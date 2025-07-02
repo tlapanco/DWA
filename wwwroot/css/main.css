@@ -16,10 +16,10 @@ body {
 }
 
 img {
-	animation: girarEnX 3s infinite;
+	animation: girarEnY 3s infinite;
 }
 
-@keyframes girarEnX {
+@keyframes girarEnY {
 	0% {
 		transform: rotateY(0deg);
 	}
