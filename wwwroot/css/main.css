@@ -118,6 +118,7 @@ body::before {
 }
 
 .seccion-secundaria h2 {
+ width: 100%;
 	text-align: center;
 	background-color: rgba(250, 250, 250, 0.2);
 	padding-block: 1em;
