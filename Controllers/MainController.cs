@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ProyectoMongoDB.Controllers
 {
-
 	public class MainController : Controller
 	{
 		
@@ -10,5 +9,11 @@ namespace ProyectoMongoDB.Controllers
 		{
 			return View();
 		}
+
+		public ActionResult Motos()
+		{
+            return View();
+        }
+
 	}
 }

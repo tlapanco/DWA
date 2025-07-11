@@ -128,15 +128,15 @@ body::before {
 	max-width: 800px;
 }
 
-/*Estilos tarjetas autos*/
+/*Estilos tarjetas vehiculos*/
 
-.contenedor-autos {
+.contenedor-vehiculos {
 	display: grid;
 	grid-template-columns: 1fr 1fr; /*2 columnas de 50% de ancho*/
 	gap: 2em; /*Espacio entre elementos de la cuadricula*/
 }
 
-.tarjeta-auto {
+.tarjeta-vehiculo {
 	position: relative;	
 	overflow: hidden;
 	/*distancia de visualización para efecto 3d*/
@@ -145,21 +145,21 @@ body::before {
 	transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.tarjeta-auto:hover {
+.tarjeta-vehiculo:hover {
 	transform: scale(1.05);
 	box-shadow: 6px 6px 20px rgba(250, 250, 250, 0.5);
 }
 
-.tarjeta-auto img {
+.tarjeta-vehiculo img {
 	border-radius: 10px;
 	transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.tarjeta-auto:hover img {
+.tarjeta-vehiculo:hover img {
 	scale: 0;
 }
 
-.tarjeta-auto-contenido {
+.tarjeta-vehiculo-contenido {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -173,11 +173,11 @@ body::before {
 
 }
 
-.tarjeta-auto:hover .tarjeta-auto-contenido {
+.tarjeta-vehiculo:hover .tarjeta-vehiculo-contenido {
 	transform: rotateX(0deg);/*Muestra el elemento*/
 }
 
-.tarjeta-auto-titulo {
+.tarjeta-vehiculo-titulo {
 	margin: 0;
 	font-size: 24px;
 	color: #333;
@@ -185,7 +185,7 @@ body::before {
 
 }
 
-.tarjeta-auto-descripcion {
+.tarjeta-vehiculo-descripcion {
 	margin: 10px 0 0;
 	font-size: 14px;
 	color: #777;
@@ -234,6 +234,56 @@ body::before {
 .proveedor-tarjeta-descripcion {
 	border-top: 1em solid rgba(250, 250, 250, 0.5);
 	padding-top: 0.5em;
+}
+
+.contenedor-proveedores-motos {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr); /*Cuadricula de 6 columnas*/
+	gap: 5em;
+	margin: 1rem 0;
+	max-width: 800px;
+}
+
+.proveedor-moto-tarjeta {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1em;
+}
+
+.tercio-ancho {
+	grid-column: span 2;
+}
+
+.mitad-ancho {
+	grid-column: span 3;
+}
+
+.proveedor-moto-tarjeta-imagen {
+	width: 250px;
+	height: auto;
+	object-fit: contain;
+	background-color: rgba(250, 250, 250, 0.1);
+	border: solid 1px white;
+	border-radius: 10px;
+	transition: all 0.3s ease-in-out;
+}
+
+.proveedor-moto-tarjeta-imagen:hover {
+	transform: translateY(-10px);
+	backdrop-filter: blur(10px);
+	background-color: rgba(250, 250, 250, 0.5);	
+	cursor: pointer;
+}
+
+.proveedor-moto-tarjeta-descripcion {
+	padding: 0 1em;	
+	border-radius: 5px;
+	text-align: center;
+	background-color: white;
+	color: black;
+	line-height: normal;
 }
 
 
