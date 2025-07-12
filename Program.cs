@@ -1,7 +1,12 @@
+using DWA.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//Añadir servicio de MongoDB
+builder.Services.AddSingleton<MongoDbService>();
 
 var app = builder.Build();
 

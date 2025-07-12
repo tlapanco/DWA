@@ -1,14 +1,26 @@
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Driver;
+using DWA.Services;
+using DWA.Models;
 
 namespace ProyectoMongoDB.Controllers
 {
 	public class MainController : Controller
 	{
-		
-		public ActionResult Index()
+        private readonly MongoDbService mongoService;        
+		public MainController (MongoDbService mongoDbService)
 		{
-			return View();
+			mongoService = mongoDbService;			
 		}
+
+        public async Task<IActionResult> Index()
+		{
+            var autosColeccion = mongoService.ObtenerColeccion<Auto>("autos");
+
+            var autos = await autosColeccion.Find(auto => true).ToListAsync();
+
+            return Ok(autos);
+        }
 
 		public ActionResult Motos()
 		{
