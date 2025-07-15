@@ -1,7 +1,7 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace DWA.Models
+namespace ProyectoMongoDB.Models
 {
     public class Auto 
     {

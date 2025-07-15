@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
-using DWA.Services;
-using DWA.Models;
+using ProyectoMongoDB.Services;
+using ProyectoMongoDB.Models;
 
 namespace ProyectoMongoDB.Controllers
 {

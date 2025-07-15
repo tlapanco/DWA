@@ -1,6 +1,6 @@
 using MongoDB.Driver;
 
-namespace DWA.Services
+namespace ProyectoMongoDB.Services
 {
     public class MongoDbService
     {

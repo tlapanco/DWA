@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace DWA.Controllers   
+namespace ProyectoMongoDB.Controllers   
 {
     public class LoginController : Controller
     {
