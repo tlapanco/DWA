@@ -19,7 +19,7 @@ namespace ProyectoMongoDB.Controllers
 
             var autos = await autosColeccion.Find(auto => true).ToListAsync();
 
-            return Ok(autos);
+            return View(autos);
         }
 
 		public ActionResult Motos()
