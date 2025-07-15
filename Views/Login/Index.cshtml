@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "MasterLoginPage";
+    ViewBag.Title = "Inicio de sesión";
+}
+<div class="form-container">
+    <h2>Registrarse</h2>
+    <form>
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" required />
+
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" name="password" required />
+
+      <button type="submit">Crear cuenta</button>
+    </form>
+    <div class="footer">
+      ¿Ya tienes una cuenta? <a href="#" style="color:#667eea; text-decoration:none;">Inicia sesión</a>
+    </div>
+  </div>
