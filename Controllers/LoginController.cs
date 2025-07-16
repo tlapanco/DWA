@@ -85,5 +85,15 @@ namespace ProyectoMongoDB.Controllers
 
         }
 
+        [HttpPost]
+        public async Task<ActionResult> CrearAuto(Auto auto)
+        {
+            var autosColeccion = mongoService.ObtenerColeccion<Auto>("autos");
+
+            await autosColeccion.InsertOneAsync(auto);
+
+            return RedirectToAction("PanelInicio", "Login");
+        }
+
     }
 }
