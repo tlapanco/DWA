@@ -67,19 +67,19 @@ namespace ProyectoMongoDB.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult> EditarAuto(string idAuto, string modelo, string marca, decimal precio, string descripcion, string motor, string imagen)
+        public async Task<ActionResult> EditarAuto(Auto autoEditado)
         {
             var autosColeccion = mongoService.ObtenerColeccion<Auto>("autos");
 
-            var autoEditado = Builders<Auto>.Update            
-            .Set(auto => auto.Modelo, modelo)
-            .Set(auto => auto.Marca, marca)
-            .Set(auto => auto.Precio, precio)
-            .Set(auto => auto.Descripcion, descripcion)
-            .Set(auto => auto.Motor, motor)
-            .Set(auto => auto.Imagen, imagen);
+            var auto = Builders<Auto>.Update            
+            .Set(auto => auto.Modelo, autoEditado.Modelo)
+            .Set(auto => auto.Marca, autoEditado.Marca)
+            .Set(auto => auto.Precio, autoEditado.Precio)
+            .Set(auto => auto.Descripcion, autoEditado.Descripcion)
+            .Set(auto => auto.Motor, autoEditado.Motor)
+            .Set(auto => auto.Imagen, autoEditado.Imagen);
 
-            var respuesta = await autosColeccion.UpdateOneAsync(auto => auto.ID == idAuto, autoEditado);
+            var respuesta = await autosColeccion.UpdateOneAsync(auto => auto.ID == autoEditado.ID, auto);
 
             return RedirectToAction("PanelInicio", "Login");
 
