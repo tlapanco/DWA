@@ -1,5 +1,43 @@
 @{
-    Layout = null;
+    Layout = "MasterPanelPage";
+    ViewBag.Title = "Panel autos";
 }
 
-estás autenticado
+<header>
+    <h1>Gestión de Autos</h1>
+    <a asp-controller="Login" asp-action="CerrarSesion" >Salir</a>
+</header>
+
+<div class="container">
+    <!-- Tabla de registros -->
+    <table>
+        <thead>
+            <tr>
+                <th>Modelo</th>
+                <th>Marca</th>
+                <th>Precio</th>
+                <th>Motor</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="userTable">
+        @foreach(var auto in Model)
+        {
+            <tr>
+                <td>@auto.Modelo</td>
+                <td>@auto.Marca</td>
+                <td>@string.Format("{0:c}", @auto.Precio)</td>
+                <td>@auto.Motor</td>
+                <td class="btn-group">
+                <form action="/Login/BorrarAuto" method="DELETE">
+                    <input type="hidden" name="idAuto" value="@auto.ID" />
+                    <button class="btn btn-delete">Eliminar</button>
+                </form>
+                <button class="btn btn-edit">Editar</button>
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

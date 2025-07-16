@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ProyectoMongoDB.Models;
 using ProyectoMongoDB.Services;
+using MongoDB.Driver;
 
 namespace ProyectoMongoDB.Controllers   
 {
@@ -31,9 +32,31 @@ namespace ProyectoMongoDB.Controllers
 
         }
         [ValidarSesion]
-        public ActionResult PanelInicio ()
+        public async Task<IActionResult> PanelInicio ()
         {
-            return View();
+            var autosColeccion = mongoService.ObtenerColeccion<Auto>("autos");
+
+            var autos = await autosColeccion.Find(auto => true).ToListAsync();
+
+            return View(autos);
+        }
+
+        public ActionResult CerrarSesion()
+        {
+            HttpContext.Session.Clear();
+
+            return RedirectToAction("Index", "Login");
+        }
+
+        public async Task<ActionResult> BorrarAuto(string idAuto)
+        {
+            var autosColeccion = mongoService.ObtenerColeccion<Auto>("autos");
+
+            var autoFiltrado = Builders<Auto>.Filter.Eq(auto => auto.ID, idAuto);
+            
+            var resultado = await autosColeccion.DeleteOneAsync(autoFiltrado);
+
+            return RedirectToAction("PanelInicio", "Login");
         }
 
     }
