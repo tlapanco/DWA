@@ -25,9 +25,9 @@
                 <td>@string.Format("{0:c}", @auto.Precio)</td>
                 <td>@auto.Motor</td>
                 <td class="btn-group">
-                <form action="/Login/BorrarAuto" method="DELETE">
+                <form action="/Login/BorrarAuto" method="POST">
                     <input type="hidden" name="idAuto" value="@auto.ID" />
-                    <button class="btn btn-delete">Eliminar</button>
+                    <button type="submit" class="btn btn-delete">Eliminar</button>
                 </form>
                 <button class="btn btn-edit" onclick='mostrarModalEditar(@Html.Raw(Json.Serialize(auto)))'>Editar</button>
                 </td>
@@ -47,7 +47,7 @@
         </div>
         <div class="modal-body">
             <!-- Formulario para editar el auto -->
-            <form id="formEditarAuto">
+            <form id="formEditarAuto" action="/Login/EditarAuto" method="POST">
                 <label for="modelo">Modelo:</label>
                 <input type="text" id="modelo" name="modelo" required>
                 
@@ -71,7 +71,7 @@
             </form>
         </div>
         <div class="modal-footer">
-            <button class="btn-save" onclick="guardarEdicion()">Guardar cambios</button>
+            <button form="formEditarAuto" class="btn-save">Guardar cambios</button>
             <button class="btn-cancel" onclick="cerrarModal()">Cancelar</button>
         </div>
     </div>

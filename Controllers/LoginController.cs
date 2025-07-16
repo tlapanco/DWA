@@ -52,16 +52,37 @@ namespace ProyectoMongoDB.Controllers
 
             return RedirectToAction("Index", "Login");
         }
-        [HttpDelete]
+        
+        [HttpPost]
         public async Task<ActionResult> BorrarAuto(string idAuto)
         {
             var autosColeccion = mongoService.ObtenerColeccion<Auto>("autos");
 
             var autoFiltrado = Builders<Auto>.Filter.Eq(auto => auto.ID, idAuto);
             
-            var resultado = await autosColeccion.DeleteOneAsync(autoFiltrado);
+            var resultado = await autosColeccion.DeleteOneAsync(autoFiltrado);            
 
             return RedirectToAction("PanelInicio", "Login");
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult> EditarAuto(string idAuto, string modelo, string marca, decimal precio, string descripcion, string motor, string imagen)
+        {
+            var autosColeccion = mongoService.ObtenerColeccion<Auto>("autos");
+
+            var autoEditado = Builders<Auto>.Update            
+            .Set(auto => auto.Modelo, modelo)
+            .Set(auto => auto.Marca, marca)
+            .Set(auto => auto.Precio, precio)
+            .Set(auto => auto.Descripcion, descripcion)
+            .Set(auto => auto.Motor, motor)
+            .Set(auto => auto.Imagen, imagen);
+
+            var respuesta = await autosColeccion.UpdateOneAsync(auto => auto.ID == idAuto, autoEditado);
+
+            return RedirectToAction("PanelInicio", "Login");
+
         }
 
     }
