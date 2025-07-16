@@ -6,7 +6,12 @@
 	<title>@ViewData["Title"] - Panel Administración</title>
 	<link rel="stylesheet" href="~/css/panel.css" asp-append-version="true" />	
 </head>
-<body>	
+<body>
+	<header>
+    	<h1>Gestión de Autos - @ViewData["Usuario"]</h1>
+    	<a asp-controller="Login" asp-action="CerrarSesion" >Salir</a>
+	</header>
+	
 	<main role="main">
 		@RenderBody()
 	</main>

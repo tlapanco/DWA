@@ -34,13 +34,18 @@ namespace ProyectoMongoDB.Controllers
         [ValidarSesion]
         public async Task<IActionResult> PanelInicio ()
         {
-            var autosColeccion = mongoService.ObtenerColeccion<Auto>("autos");
+            string? idUsuario = HttpContext.Session.GetString("IdUsuario");
+            var usuariosColeccion = mongoService.ObtenerColeccion<Usuario>("usuarios");
+            var usuario = await usuariosColeccion.Find(usuario => usuario.IdUsuario == idUsuario).FirstOrDefaultAsync();
+            ViewBag.Usuario = usuario.Nombre;
 
+            var autosColeccion = mongoService.ObtenerColeccion<Auto>("autos");
             var autos = await autosColeccion.Find(auto => true).ToListAsync();
+            
 
             return View(autos);
         }
-
+        
         public ActionResult CerrarSesion()
         {
             HttpContext.Session.Clear();
