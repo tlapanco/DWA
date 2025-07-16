@@ -4,7 +4,8 @@
 }
 
 <!-- Contenido del panel autos -->
-<div class="container">
+<div class="container">    
+    <button class="btn btn-add" onclick="mostrarModal(modalCrearAuto)">Crear Auto</button>
     <!-- Tabla de registros -->
     <table>
         <thead>
@@ -43,7 +44,7 @@
     <div class="modal-container">
         <div class="modal-header">
             <h3>Editar Auto</h3>
-            <button class="close-btn" onclick="cerrarModal()">×</button>
+            <button class="close-btn" onclick="cerrarModal(modalEditarAuto)">×</button>
         </div>
         <div class="modal-body">
             <!-- Formulario para editar el auto -->
@@ -72,7 +73,43 @@
         </div>
         <div class="modal-footer">
             <button form="formEditarAuto" class="btn-save">Guardar cambios</button>
-            <button class="btn-cancel" onclick="cerrarModal()">Cancelar</button>
+            <button class="btn-cancel" onclick="cerrarModal(modalEditarAuto)">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Crear Auto -->
+<div id="crearAutoModal" class="modal-overlay">
+    <div class="modal-container">
+        <div class="modal-header">
+            <h3>Crear Auto</h3>
+            <button class="close-btn" onclick="cerrarModal(modalCrearAuto)">×</button>
+        </div>
+        <div class="modal-body">
+            <!-- Formulario para editar el auto -->
+            <form id="formCrearAuto" action="/Login/CrearAuto" method="POST">
+                <label for="modelo">Modelo:</label>
+                <input type="text" name="modelo" required>
+                
+                <label for="marca">Marca:</label>
+                <input type="text" name="marca" required>
+                
+                <label for="precio">Precio:</label>
+                <input type="number"  name="precio" required>
+                
+                <label for="motor">Motor:</label>
+                <input type="text"  name="motor" required>
+
+                <label for="imagen">Imagen:</label>
+                <input type="text"  name="imagen" required>
+
+                <label for="descripcion">Descripcion:</label>
+                <textarea  name="descripcion" required></textarea>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button form="formCrearAuto" class="btn-save">Crear Auto</button>
+            <button class="btn-cancel" onclick="cerrarModal(modalCrearAuto)">Cancelar</button>
         </div>
     </div>
 </div>
@@ -80,6 +117,8 @@
 
 <script>
 const modalEditarAuto = document.getElementById('editarAutoModal');
+
+const modalCrearAuto = document.getElementById('crearAutoModal');
 
 
 function mostrarModalEditar (auto){
@@ -92,10 +131,15 @@ function mostrarModalEditar (auto){
     document.getElementById('descripcion').value = auto.descripcion;
     document.getElementById('idAuto').value = auto.id;
 
-    modalEditarAuto.style.display = 'flex';    
+    mostrarModal(modalEditarAuto);
 }
 
-function cerrarModal() {
-    modalEditarAuto.style.display = 'none';
+
+function mostrarModal ( modal ) {
+    modal.style.display = 'flex';
+}
+
+function cerrarModal( modal ) {
+    modal.style.display = 'none';
 }
 </script>
