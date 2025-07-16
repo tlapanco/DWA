@@ -8,7 +8,13 @@ builder.Services.AddControllersWithViews();
 //Añadir servicio de MongoDB
 builder.Services.AddSingleton<MongoDbService>();
 
+//Añadir sesiones a la app
+builder.Services.AddSession();
+
 var app = builder.Build();
+
+//Habilitar uso de sesiones
+app.UseSession();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

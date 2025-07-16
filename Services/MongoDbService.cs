@@ -1,4 +1,5 @@
 using MongoDB.Driver;
+using ProyectoMongoDB.Models;
 
 namespace ProyectoMongoDB.Services
 {
@@ -16,6 +17,16 @@ namespace ProyectoMongoDB.Services
         public IMongoCollection<TipoDocumento> ObtenerColeccion<TipoDocumento> (string nombreColeccion)
         {
             return db.GetCollection<TipoDocumento>(nombreColeccion);
+        }
+
+        public async Task<Usuario> ValidarCredencialesUsuario (string idUsuario, string contrasena)
+        {
+            var usuariosColeccion = db.GetCollection<Usuario>("usuarios");
+
+            return await usuariosColeccion.Find(
+                usuario => usuario.IdUsuario == idUsuario && usuario.Contrasena == contrasena
+            ).FirstOrDefaultAsync();
+
         }
     }
 }
