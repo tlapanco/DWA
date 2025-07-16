@@ -52,7 +52,7 @@ namespace ProyectoMongoDB.Controllers
 
             return RedirectToAction("Index", "Login");
         }
-
+        [HttpDelete]
         public async Task<ActionResult> BorrarAuto(string idAuto)
         {
             var autosColeccion = mongoService.ObtenerColeccion<Auto>("autos");
