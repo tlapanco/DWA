@@ -26,7 +26,7 @@
                 <td>@string.Format("{0:c}", @auto.Precio)</td>
                 <td>@auto.Motor</td>
                 <td class="btn-group">
-                <form action="/Login/BorrarAuto" method="POST">
+                <form action="@Url.Action("BorrarAuto", "Login")" method="POST">
                     <input type="hidden" name="idAuto" value="@auto.ID" />
                     <button type="submit" class="btn btn-delete">Eliminar</button>
                 </form>
@@ -48,7 +48,7 @@
         </div>
         <div class="modal-body">
             <!-- Formulario para editar el auto -->
-            <form id="formEditarAuto" action="/Login/EditarAuto" method="POST">
+            <form id="formEditarAuto" action="@Url.Action("EditarAuto", "Login")" method="POST">
                 <label for="modelo">Modelo:</label>
                 <input type="text" id="modelo" name="modelo" required>
                 
@@ -86,8 +86,8 @@
             <button class="close-btn" onclick="cerrarModal(modalCrearAuto)">×</button>
         </div>
         <div class="modal-body">
-            <!-- Formulario para editar el auto -->
-            <form id="formCrearAuto" action="/Login/CrearAuto" method="POST">
+            <!-- Formulario para crear un auto -->
+            <form id="formCrearAuto" action="@Url.Action("CrearAuto", "Login")" method="POST">
                 <label for="modelo">Modelo:</label>
                 <input type="text" name="modelo" required>
                 

@@ -14,7 +14,7 @@
 	y motocicletas de alta calidad, abarcando tanto marcas reconocidas como opciones 
 	exclusivas para aquellos que buscan un estilo único.</p>
 
-	<img class="IMG" src="/img/CardIMG.jpg" />
+	<img class="IMG" src="~/img/CardIMG.jpg" />
 </section>
 
 <section class="seccion-secundaria">
@@ -31,7 +31,7 @@
 		@foreach(var auto in Model)
 		{
 			<div class="tarjeta-vehiculo">
-				<img src="/img/autos/@auto.Imagen" alt="Imagen de " />
+				<img src="~/img/autos/@auto.Imagen" alt="Imagen de " />
 				<div class="tarjeta-vehiculo-contenido">
 					<p class="tarjeta-vehiculo-titulo">@auto.Modelo</p>
 					<p class="tarjeta-vehiculo-descripcion">@auto.Descripcion</p>
@@ -52,17 +52,17 @@
 
 	<section class="contenedor-proveedores">
 		<div class="proveedor-tarjeta">
-			<img class="proveedor-tarjeta-imagen" src="/img/Proveedores/audi.png" alt="Audi" />
+			<img class="proveedor-tarjeta-imagen" src="~/img/Proveedores/audi.png" alt="Audi" />
 			<p class="proveedor-tarjeta-descripcion">Nuestro proveedor #1 de automoviles Seat verificados y de alta gama.</p>
 		</div>
 
 		<div class="proveedor-tarjeta">
-			<img class="proveedor-tarjeta-imagen" src="/img/Proveedores/volkswagen.png" alt="Volkswagen"/>
+			<img class="proveedor-tarjeta-imagen" src="~/img/Proveedores/volkswagen.png" alt="Volkswagen"/>
 			<p class="proveedor-tarjeta-descripcion">Nuestro proveedor #1 de automoviles Seat verificados y de alta gama.</p>
 		</div>
 
 		<div class="proveedor-tarjeta">
-			<img class="proveedor-tarjeta-imagen" src="/img/Proveedores/seat.png" alt="Seat" />
+			<img class="proveedor-tarjeta-imagen" src="~/img/Proveedores/seat.png" alt="Seat" />
 			<p class="proveedor-tarjeta-descripcion">Nuestro proveedor #1 de automoviles Seat verificados y de alta gama.</p>
 		</div>
 	</section>

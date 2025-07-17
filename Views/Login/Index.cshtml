@@ -4,7 +4,7 @@
 }
 <div class="form-container">
     <h2>Iniciar sesión</h2>
-    <form action="/Login/Index" method="POST">
+    <form action="@Url.Action("Index", "Login")" method="POST">
       <label for="idUsuario">ID Usuario</label>
       <input type="text" id="idUsuario" name="idUsuario" required />
 

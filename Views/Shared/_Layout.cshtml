@@ -5,14 +5,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>@ViewData["Title"] - DWA</title>
 	<link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
+	<script src="~/js/site.js" defer asp-append-version="true"></script>
 </head>
 <body>
 	<header class="barra-navegacion">
 		<nav>
 			<ul>
-				<li><a asp-controller="Main" asp-action="Index" >Autos</a></li>
-				<li><a href="#">Camionetas</a></li>
+				<li><a asp-controller="Main" asp-action="Index" >Autos</a></li>				
 				<li><a asp-controller="Main" asp-action="Motos">Motos</a></li>
+				<li><a asp-controller="Login" asp-action="Index">Log In</a></li>
 			</ul>			
 		</nav>
 	</header>
